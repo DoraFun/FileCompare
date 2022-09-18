@@ -1,30 +1,22 @@
 import hashlib
 import glob
-import itertools
+import tkinter
 
-# def md5sum(filename):
-#     h  = hashlib.md5()
-#     b  = bytearray(128*1024)
-#     mv = memoryview(b)
-#     with open(filename, 'rb', buffering=0) as f:
-#         while n := f.readinto(mv):
-#             h.update(mv[:n])
-#     return h.hexdigest()
-
-
-# md5sum('UnityPlayer.dll')
-folder = glob.glob("../checkfiles/*.*")
 hashes = []
+names = []
+def gethash(folder):
+    for file in folder:
+        with open(file, 'rb') as getmd5:
+            data = getmd5.read()
+            gethash = hashlib.md5(data).hexdigest()
+            hashes.append(gethash)
+            names.append(file)
 
-for file in folder:
-    with open(file, 'rb') as getmd5:
-        data = getmd5.read()
-        gethash = hashlib.md5(data).hexdigest()
-        # print("f: " + gethash)
-        hashes.append(gethash)
+def copies():
+    for i in range(len(hashes)):
+        for j in range(i + 1, len(hashes)):
+            if hashes[i] == hashes[j]:
+                 print(names[i]," ",names[j])
 
-
-for a, b in itertools.combinations(hashes, 2):
-    if a == b:
-        print(file)
-    
+gethash(glob.glob(str(input())))    
+copies()    
