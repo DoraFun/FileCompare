@@ -3,8 +3,6 @@ import glob
 
 
 
-
-
 hashes = []
 names = []
 def gethash(folder):
