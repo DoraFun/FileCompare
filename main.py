@@ -1,6 +1,9 @@
 import hashlib
 import glob
-import tkinter
+
+
+
+
 
 hashes = []
 names = []
@@ -18,5 +21,5 @@ def copies():
             if hashes[i] == hashes[j]:
                  print(names[i]," ",names[j])
 
-gethash(glob.glob(str(input())))    
-copies()    
+
+
