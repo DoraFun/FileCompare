@@ -1,10 +1,12 @@
 import hashlib
 import glob
-
+from tkinter import messagebox
 
 
 hashes = []
 names = []
+
+
 def gethash(folder):
     for file in folder:
         with open(file, 'rb') as getmd5:
@@ -14,10 +16,15 @@ def gethash(folder):
             names.append(file)
 
 def copies():
+    msg = '' 
     for i in range(len(hashes)):
         for j in range(i + 1, len(hashes)):
             if hashes[i] == hashes[j]:
-                 print(names[i]," ",names[j])
+               msg += names[i] + " = " + names[j] +";" +"\n"
+    messagebox.showinfo("Same files", msg)
+                
+                 
+
 
 
 

@@ -17,6 +17,10 @@ def show_msg():
     main.gethash(glob.glob(directory + "/**/*.*", recursive=True))
     # main.gethash(directory + "/*.*")
     main.copies() 
+    main.hashes.clear()
+    main.names.clear()
+    
+    
     
 
 # Add an optional Label widget
