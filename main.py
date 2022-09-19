@@ -1,5 +1,4 @@
 import hashlib
-import glob
 from tkinter import messagebox
 
 
